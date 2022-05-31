@@ -2,21 +2,19 @@ create database Capchat;
 
 use Capchat;
 
-CREATE TABLE Image(
-   IdImage INT,
-   NomImage VARCHAR(50),
-   EmplacementImage VARCHAR(100),
-   Singulier BOOLEAN,
-   Indice VARCHAR(100),      
-   IdJeu INT,
-   PRIMARY KEY(IdImage),
-   FOREIGN KEY(IdJeu) REFERENCES Jeu(IdJeu)
-);
-
 CREATE TABLE Theme(
    IdTheme INT,
    NomTheme VARCHAR(50),
    PRIMARY KEY(IdTheme)
+);
+
+CREATE TABLE Artiste(
+   IdArtiste INT,
+   NomArtiste VARCHAR(50),
+   PrenomArtiste VARCHAR(50),
+   Admail VARCHAR(100),
+   Mdp VARCHAR(100),
+   PRIMARY KEY(IdArtiste)
 );
 
 CREATE TABLE Jeu(
@@ -30,11 +28,13 @@ CREATE TABLE Jeu(
    FOREIGN KEY(IdArtiste) REFERENCES Artiste(IdArtiste)
 );
 
-CREATE TABLE Artiste(
-   IdArtiste INT,
-   NomArtiste VARCHAR(50),
-   PrenomArtiste VARCHAR(50),
-   Admail VARCHAR(100),
-   Mdp VARCHAR(100),
-   PRIMARY KEY(IdArtiste)
+CREATE TABLE Image(
+   IdImage INT,
+   NomImage VARCHAR(50),
+   EmplacementImage VARCHAR(100),
+   Singulier BOOLEAN,
+   Indice VARCHAR(100),      
+   IdJeu INT,
+   PRIMARY KEY(IdImage),
+   FOREIGN KEY(IdJeu) REFERENCES Jeu(IdJeu)
 );
